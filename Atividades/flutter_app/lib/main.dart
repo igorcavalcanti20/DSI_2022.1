@@ -135,11 +135,20 @@ class RandomWordsState extends State<RandomWords> {
             tiles: tiles,
           ).toList();
           return new Scaffold(
-            appBar: new AppBar(
+            appBar: AppBar(
               title: const Text('Saved Suggestions'),
               backgroundColor: Colors.black,
+              leading: IconButton(
+                icon: Icon(
+                  Icons.arrow_back,
+                  color: Colors.white, // define a cor do ícone como branca
+                ),
+                onPressed: () {
+                  Navigator.of(context).popUntil((route) => route.isFirst);
+                },
+              ),
             ),
-            body: new ListView(children: divided),
+            body: ListView(children: divided),
           );
         },
       ),
